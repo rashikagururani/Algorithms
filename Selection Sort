@@ -1,0 +1,23 @@
+#defining swap function
+def swap(array, firstIndex, secondIndex):
+  temp = array[firstIndex]
+  array[firstIndex] = array[secondIndex]
+  array[secondIndex] = temp
+
+# finding minimum index and its value in an array.  
+def indexOfMinimum(array, startIndex):
+  minValue = array[startIndex]
+  minIndex = startIndex
+
+  for i in xrange(minIndex + 1,len(array)):
+    if array[i] < minValue:
+      minIndex = i
+      minValue = array[i]
+  return minIndex
+
+
+def selectionSort(array):
+# swapping of value
+  for p in range(len(array)-1):
+    swap(array,p,indexOfMinimum(array,p))
+  return 
