@@ -1,23 +1,28 @@
-#defining swap function
-def swap(array, firstIndex, secondIndex):
-  temp = array[firstIndex]
-  array[firstIndex] = array[secondIndex]
-  array[secondIndex] = temp
-
-# finding minimum index and its value in an array.  
-def indexOfMinimum(array, startIndex):
-  minValue = array[startIndex]
-  minIndex = startIndex
-
-  for i in xrange(minIndex + 1,len(array)):
-    if array[i] < minValue:
-      minIndex = i
-      minValue = array[i]
-  return minIndex
-
-
-def selectionSort(array):
-# swapping of value
-  for p in range(len(array)-1):
-    swap(array,p,indexOfMinimum(array,p))
-  return 
+#using selection sort
+def swap (array, firstIndex, secondIndex):
+    temp = array[firstIndex]
+    array[firstIndex] = array[secondIndex]
+    array[secondIndex] = temp
+    print('After swapping:',array)
+    
+#array min index will be fixed (1 loop only).
+def selection_sort(array):
+    n = len(array)
+    
+    #finding min in subarray
+    for i in range (n-1): 
+        min_index_fixed = i
+        print('Min Index fixed BEFORE:',min_index_fixed)
+        for p in range (i+1,n):
+            print('Value of i:',array[i])
+            print('Value of p:',array[p])
+            if array[p]< array[min_index_fixed]:
+                min_index_fixed = p
+                print('min_index_fixed AFTER:',min_index_fixed)
+        
+        #swapping the values    
+        if (min_index_fixed != i):
+            print('Before swapping:',array)
+            swap(array,min_index_fixed,i)
+            
+selection_sort([2,4,6,0,1,6,9])
