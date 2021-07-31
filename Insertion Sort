@@ -1,0 +1,19 @@
+#defining insertion sort function
+def insertion_sort(array):
+    n=len(array)
+    #here i & j are indexes which we'll compare
+    for i in range (1,n):
+        j = i-1
+        #defining a variable name 'temp' for swapping.
+        temp = array[i]
+        print('Value of array[j]=',array[j])
+        print('Value of array[temp]=',temp)
+        #while will work only when data is not sorted
+        while j>=0 and array[j]>temp:
+            print('array[j]>temp')
+            array[j+1]=array[j]
+            j-=1
+        array[j+1] = temp
+        print(array)
+                        
+insertion_sort([8,3,7,1,0,9,9,0,0.5,-1])
